@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Alert, TextInput } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 export default function App() {
   const [num1, setNum1] = useState("");
@@ -19,7 +17,7 @@ export default function App() {
   }
 
   return (
-    <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+    <View style={styles.container}>
       {result !== "" && <Text style={{ fontSize: 25, marginTop: 25}}>Result: {result}</Text>}
       <TextInput
         style={{borderWidth: 1, padding: 10, marginBottom: 10, width: 200}}
@@ -33,15 +31,32 @@ export default function App() {
         value={num2}
         onChangeText={setNum2}
       />
-      <Button 
-        title="+"
-        onPress={addition}
-      />
-      <Button 
-        title="-"
-        onPress={subtraction}
-      />
+      <View style={styles.buttonContainer}>
+        <Button 
+          title="+"
+          onPress={addition}
+        />
+        <Button 
+          title="-"
+          onPress={subtraction}
+        />
+      </View>
     </View>
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 5
+  },
+  
+});
