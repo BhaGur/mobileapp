@@ -30,17 +30,18 @@ export default function App() {
 
       <Text style={{ fontSize: 25, marginTop: 25}}>Result: {result}</Text>
         <TextInput
-          style={{borderWidth: 1, padding: 10, marginBottom: 10, width: 200}}
+          style={styles.input}
           keyboardType = "numeric"
           value={num1}
           onChangeText={setNum1}
         />
         <TextInput 
-          style={{borderWidth: 1, padding: 10, marginBottom: 10, width: 200}}
+          style={styles.input}
           keyboardType = "numeric"
           value={num2}
           onChangeText={setNum2}
         />
+
         <View style={styles.buttonContainer}>
           <Button 
             title="+"
@@ -51,6 +52,7 @@ export default function App() {
             onPress={subtraction}
           />
         </View>
+
         <Text style={styles.historyText}>History</Text>
         <FlatList
           data={history}
@@ -67,6 +69,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  input: {
+    borderWidth: 1, 
+    padding: 10, 
+    marginBottom: 10, 
+    width: 200
   },
   buttonContainer: {
     flexDirection: 'row',
