@@ -8,9 +8,11 @@ export default function App() {
   const [currency, setCurrency] = useState('');
   const [result, setResult] = useState(0);
 
+  const apiplayer_key = process.env.API_PLAYER_KEY;
+
   const getData = () => {
     fetch('https://api.apilayer.com/exchangerates_data/latest', 
-      { headers: { 'apikey' : 'h6BOH2Jb5OwyXHfC9fI79pLC2G2YxLTs' }})
+      { headers: { 'apikey' : apiplayer_key }})
     .then(response => response.json())
     .then(data => setRates(data.rates))
     .catch(err => console.error(err))
