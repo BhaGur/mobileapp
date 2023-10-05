@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, Button, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-
+import {REACT_APP_API_KEY} from '@env';
 
 export default function App() {
-  const map_key = process.env.MAPQUEST_API_KEY;
+  const map_key = REACT_APP_API_KEY;
 
-  const API_URL = "http://www.mapquestapi.com/geocoding/v1/address?key=${map_key}" ;
+  const API_URL = `http://www.mapquestapi.com/geocoding/v1/address?key=${map_key}` ;
   const [address, setAddress] = useState('');
   const [region, setRegion] = useState({
     latitude: 60.200692, 
